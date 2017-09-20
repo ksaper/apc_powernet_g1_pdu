@@ -1,0 +1,12 @@
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.ApcPowernetG1PduDriver" Name="APC PowerNet G1 PDU" Version="0.8.0">
+    <Layout>
+        <Category Name="Inventory">
+            <Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Query the device and load it's settings into CloudShell"/>
+        </Category>
+        <Category Name="Power">
+            <Command Name="PowerOn" DisplayName="Power On" Description="Power on the ports" Tags="power"/>
+            <Command Name="PowerOff" DisplayName="Power Off" Description="Power off the ports" Tags="power"/>
+            <Command Name="PowerCycle" DisplayName="Power Cycle" Description="Power cycle the ports" Tags="power"/>
+        </Category>
+    </Layout>
+</Driver>
