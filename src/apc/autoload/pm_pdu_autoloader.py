@@ -15,14 +15,14 @@ class PmPduAutoloader:
         rv.attributes = []
 
         rv.attributes.append(self.makeattr('', 'Location', self.snmp_handler.get_property('SNMPv2-MIB', 'sysLocation', 0)))
-        rv.attributes.append(self.makeattr('', 'Model', self.snmp_handler.get_property('PM-MIB', 'pmProductModel', 0)))
-        rv.attributes.append(self.makeattr('', 'Serial Number', self.snmp_handler.get_property('PM-MIB', 'pmSerialNumber', 0)))
+        rv.attributes.append(self.makeattr('', 'Model', self.snmp_handler.get_property('PowerNet-MIB', 'pmProductModel', 0)))
+        rv.attributes.append(self.makeattr('', 'Serial Number', self.snmp_handler.get_property('PowerNet-MIB', 'pmSerialNumber', 0)))
         rv.attributes.append(self.makeattr('', 'Vendor', 'Avocent'))
-        rv.attributes.append(self.makeattr('', 'Version', self.snmp_handler.get_property('PM-MIB', 'pmFirmwareVersion', 0)))
+        rv.attributes.append(self.makeattr('', 'Version', self.snmp_handler.get_property('PowerNet-MIB', 'pmFirmwareVersion', 0)))
 
-        pdu_name = self.snmp_handler.get_property('PM-MIB', 'pmHostName', 0)
+        pdu_name = self.snmp_handler.get_property('PowerNet-MIB', 'pmHostName', 0)
 
-        outlet_table = self.snmp_handler.get_table('PM-MIB', 'pmPowerMgmtOutletsTable')
+        outlet_table = self.snmp_handler.get_table('PowerNet-MIB', 'pmPowerMgmtOutletsTable')
         for index, attribute in outlet_table.iteritems():
             name = 'Outlet %s' % index
             relative_address = index

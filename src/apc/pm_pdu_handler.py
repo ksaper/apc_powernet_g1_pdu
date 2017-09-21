@@ -28,12 +28,12 @@ class PmPduHandler:
             self.logger.info("Power cycling port %s" % raw_port)
             port = self.Port(raw_port)
             self.logger.info("Powering off port %s" % raw_port)
-            self.snmp_handler.set(ObjectIdentity('PM-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
+            self.snmp_handler.set(ObjectIdentity('PowerNet-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
                                   Gauge32(3))
             self.logger.info("Sleeping %f second(s)" % delay)
             sleep(delay)
             self.logger.info("Powering on port %s" % raw_port)
-            self.snmp_handler.set(ObjectIdentity('PM-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
+            self.snmp_handler.set(ObjectIdentity('PowerNet-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
                                   Gauge32(2))
 
     def power_off(self, port_list):
@@ -41,7 +41,7 @@ class PmPduHandler:
         for raw_port in port_list:
             self.logger.info("Powering off port %s" % raw_port)
             port = self.Port(raw_port)
-            self.snmp_handler.set(ObjectIdentity('PM-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
+            self.snmp_handler.set(ObjectIdentity('PowerNet-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
                                   Gauge32(3))
 
     def power_on(self, port_list):
@@ -49,5 +49,5 @@ class PmPduHandler:
         for raw_port in port_list:
             self.logger.info("Powering on port %s" % raw_port)
             port = self.Port(raw_port)
-            self.snmp_handler.set(ObjectIdentity('PM-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
+            self.snmp_handler.set(ObjectIdentity('PowerNet-MIB', 'pmPowerMgmtOutletsTablePowerControl', port.port_number, port.pdu_number, port.outlet_number),
                                   Gauge32(2))

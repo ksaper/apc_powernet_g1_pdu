@@ -39,7 +39,7 @@ class SnmpHandler:
 
         handler = QualiSnmp(snmp_parameters, self.logger)
         handler.update_mib_sources(mib_path)
-        handler.load_mib(['PM-MIB'])
+        handler.load_mib(['PowerNet-MIB'])
 
         return handler
 
