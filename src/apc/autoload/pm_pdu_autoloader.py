@@ -22,7 +22,7 @@ class PmPduAutoloader:
 
         pdu_name = self.snmp_handler.get_property('PowerNet-MIB', 'sPDUMasterConfigPDUName', 0)
 
-        outlet_table = self.snmp_handler.get_table('PowerNet-MIB', 'upsOutletGroups')
+        outlet_table = self.snmp_handler.get_table('PowerNet-MIB', 'sPDUOutletControlTable')
         for index, attribute in outlet_table.iteritems():
             name = 'Outlet %s' % index
             relative_address = index

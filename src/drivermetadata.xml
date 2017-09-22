@@ -1,4 +1,4 @@
-<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.ApcPowernetG1PduDriver" Name="APC PowerNet G1 PDU" Version="0.8.0">
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.ApcPowernetG1PduDriver" Name="APC PowerNet G1 PDU" Version="1.0.0">
     <Layout>
         <Category Name="Inventory">
             <Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Query the device and load it's settings into CloudShell"/>

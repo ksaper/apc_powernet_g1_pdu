@@ -1,4 +1,4 @@
-from avocent.pm_pdu_handler import PmPduHandler
+from apc.pm_pdu_handler import PmPduHandler
 from cloudshell.power.pdu.power_resource_driver_interface import PowerResourceDriverInterface
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 from cloudshell.shell.core.context import AutoLoadDetails, InitCommandContext, ResourceCommandContext
