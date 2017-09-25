@@ -14,11 +14,12 @@ class PmPduAutoloader:
         rv.resources = []
         rv.attributes = []
 
-        rv.attributes.append(self.makeattr('', 'Location', self.snmp_handler.get_property('SNMPv2-MIB', 'sysLocation', 0)))
-        rv.attributes.append(self.makeattr('', 'Model', self.snmp_handler.get_property('PowerNet-MIB', 'xPDUIdentModelNumber', 0)))
-        rv.attributes.append(self.makeattr('', 'Serial Number', self.snmp_handler.get_property('PowerNet-MIB', 'xPDUIdentSerialNumber', 0)))
+        # rv.attributes.append(self.makeattr('', 'Location', self.snmp_handler.get_property('SNMPv2-MIB', 'sysLocation', 0)))
+        # rv.attributes.append(self.makeattr('', 'Location', self.snmp_handler.get_property('PowerNet-MIB', 'rPDU2IdeLocationnt', 0)))
+        rv.attributes.append(self.makeattr('', 'Model', self.snmp_handler.get_property('PowerNet-MIB', 'sPDUIdentModelNumber', 0)))
+        rv.attributes.append(self.makeattr('', 'Serial Number', self.snmp_handler.get_property('PowerNet-MIB', 'sPDUIdentSerialNumber', 0)))
         rv.attributes.append(self.makeattr('', 'Vendor', 'APC'))
-        rv.attributes.append(self.makeattr('', 'Version', self.snmp_handler.get_property('PowerNet-MIB', 'sPDUIdentFirmwareRevVM', 0)))
+        rv.attributes.append(self.makeattr('', 'Firmware Version', self.snmp_handler.get_property('PowerNet-MIB', 'sPDUIdentFirmwareRev', 0)))
 
         pdu_name = self.snmp_handler.get_property('PowerNet-MIB', 'sPDUMasterConfigPDUName', 0)
 
@@ -29,7 +30,7 @@ class PmPduAutoloader:
             unique_identifier = '%s.%s' % (pdu_name, index)
 
             rv.resources.append(self.makeres(name, 'Generic Power Socket', relative_address, unique_identifier))
-            rv.attributes.append(self.makeattr(relative_address, 'Port Description', attribute['memOutletStatusOutletName']))
+            # rv.attributes.append(self.makeattr(relative_address, 'Port Description', attribute['memOutletStatusOutletName']))
 
         return rv
 
